@@ -6,6 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.example.mvplibrary.base.BaseFragment;
 import com.example.sunshine.vmovie2.MainActivity;
 import com.example.sunshine.vmovie2.R;
@@ -20,24 +25,27 @@ import butterknife.BindView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends BaseFragment implements MainActivity.OnTitleClickListener, ViewPager.OnPageChangeListener {
+public class HomeFragment extends BaseFragment implements  ViewPager.OnPageChangeListener, MainActivity.OnTitleClickListener {
 
+    protected View layout;
     public static final String TAG = HomeFragment.class.getSimpleName();
 
     @BindView(R2.id.fragment_home_viewPager)
     ViewPager mViewPager;
     private MainActivity mMainActivity;
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof MainActivity) {
-            mMainActivity = (MainActivity) context;
-            //接口回调最后一步
+      //  Log.e(TAG, "onAttach: =======================" );
+        Toast.makeText(context, "++++++++++", Toast.LENGTH_SHORT).show();
+        if (context instanceof MainActivity){
+            mMainActivity= (MainActivity) context;
             mMainActivity.setOnTitleClickListener(this);
         }
     }
+
+
 
     @Override
     public int getLayoutId() {
@@ -45,10 +53,10 @@ public class HomeFragment extends BaseFragment implements MainActivity.OnTitleCl
     }
 
 
-
     @Override
     public void initView() {
-        Log.e(TAG, "initView: getFragments-->" );
+        Log.e(TAG, "initView: getFragments-->");
+//        mViewPager=(ViewPager) findViewById(R.id.fragment_home_viewPager);
         HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(getChildFragmentManager(), getFragments());
         mViewPager.setAdapter(adapter);
         mViewPager.addOnPageChangeListener(this);
@@ -72,10 +80,15 @@ public class HomeFragment extends BaseFragment implements MainActivity.OnTitleCl
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        Log.e(TAG, "onPageScrolled: " );
+        Log.e(TAG, "onPageScrolled: ");
+        Toast.makeText(mMainActivity, "onPageScrolled", Toast.LENGTH_SHORT).show();
         if (mMainActivity != null) {
             mMainActivity.moveTitleIndicator(position + positionOffset);
+        }else {
+            Toast.makeText(mMainActivity, "mMainActivity为", Toast.LENGTH_SHORT).show();
+                    
         }
+
     }
 
     @Override

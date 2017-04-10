@@ -118,25 +118,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.activity_main_search:
                 // TODO: 2017/3/6 跳转搜索页面
-
                 break;
             case R.id.activity_main_home_title_movie_list:
+                Log.e(TAG, "onClick: 点击电影列表了 " );
                 //点击的时候，触发接口中的方法
+
                 if (onTitleClickListener != null) {
                     onTitleClickListener.onMovieTitleClick();
                     TextView check = (TextView) findViewById(R.id.activity_main_home_title_channel_list);
                     TextView unCheck = (TextView) findViewById(R.id.activity_main_home_title_movie_list);
                     check.setTextColor(getResources().getColor(R.color.colorGray6));
                     unCheck.setTextColor(getResources().getColor(R.color.colorWhite));
+                }else {
+                    Toast.makeText(this, "点击电影列表了,空啊", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.activity_main_home_title_channel_list:
+                Log.e(TAG, "onClick: 点击频道按钮了" );
                 if (onTitleClickListener != null) {
                     onTitleClickListener.onChannelTitleClick();
                     TextView check = (TextView) findViewById(R.id.activity_main_home_title_movie_list);
                     TextView unCheck = (TextView) findViewById(R.id.activity_main_home_title_channel_list);
                     check.setTextColor(getResources().getColor(R.color.colorGray6));
                     unCheck.setTextColor(getResources().getColor(R.color.colorWhite));
+                }else {
+                    Toast.makeText(this, "点击电影频道了,空啊", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -329,10 +335,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 在Fragment中调用此方法，设置Indicator的位置
      * offset ： 0-1
      */
-    private int width;
     public void moveTitleIndicator(float offset) {
-        if (width==0)
-        width = mHomeTitle.getWidth();
+        int width = mHomeTitle.getWidth();
         mIndicator.setTranslationX(offset * width / 2);
 
     }
