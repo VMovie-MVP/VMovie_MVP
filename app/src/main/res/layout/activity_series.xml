@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_series"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sunshine.vmovie2.ui.series.activity.SeriesDetailActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/series_detail_topBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorBlack">
+
+        <ImageView
+            android:id="@+id/series_detail_top_back"
+            android:layout_width="45dp"
+            android:scaleY="0.8"
+            android:scaleX="0.8"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@mipmap/back_icon" />
+        <ImageView
+            android:id="@+id/series_detail_top_share"
+            android:layout_width="45dp"
+            android:scaleY="0.8"
+            android:scaleX="0.8"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/video_lan_share" />
+    </RelativeLayout>
+    <VideoView
+        android:layout_below="@id/series_detail_topBar"
+        android:id="@+id/series_detail_video"
+        android:layout_width="match_parent"
+        android:layout_height="160dp" />
+
+
+
+    <TextView
+        android:id="@+id/series_detail_web_not_find"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableLeft="@mipmap/fail"
+        android:gravity="center"
+        android:text="网络请求无数据，主公请息怒"
+        android:textSize="20dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/series_detail_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/series_detail_bottom_share"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/movie_detail_bottom_share_icon"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:text="0"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:drawablePadding="5dp"
+            android:textColor="@color/colorGrayA"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/series_detail_bottom_comment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/footer_comment_icon"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:text="0"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:drawablePadding="5dp"
+            android:textColor="@color/colorGrayA"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/series_detail_bottom_cache"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/details_cache"
+            android:gravity="center_vertical"
+            android:text="缓存"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:drawablePadding="5dp"
+            android:textColor="@color/colorGrayA"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/series_detail_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/series_detail_bottom_layout"
+        android:layout_below="@id/series_detail_video" />
+
+
+</RelativeLayout>

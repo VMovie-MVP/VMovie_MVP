@@ -130,11 +130,22 @@ public abstract class BaseLvAdapter<B> extends BaseAdapter{
     protected  static class ViewHolder {
         View itemView;
         //利用Map集合,存储View,减少FindViewById的次数
-        Map<Integer,View> cacheViews ;
+         Map<Integer,View> cacheViews ;
 
         private ViewHolder(View item){
             this.itemView = item;
             cacheViews = new HashMap<>();
+        }
+
+        public View findView(int resId){
+            View view=null;
+            if (cacheViews.containsKey(resId)){
+                view=cacheViews.get(resId);
+            }else {
+                view=itemView.findViewById(resId);
+                cacheViews.put(resId,view);
+            }
+            return view;
         }
 
         public View getView(int resId){

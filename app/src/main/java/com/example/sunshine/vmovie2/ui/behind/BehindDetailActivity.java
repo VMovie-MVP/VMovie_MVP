@@ -1,4 +1,4 @@
-package com.example.sunshine.vmovie2.ui.home.activity;
+package com.example.sunshine.vmovie2.ui.behind;
 
 import android.content.Intent;
 import android.view.KeyEvent;
