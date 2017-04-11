@@ -1,20 +1,30 @@
 package com.example.sunshine.vmovie2.ui.home.behind;
 
+import android.widget.ListView;
+
 import com.example.mvplibrary.base.BaseFragment;
 import com.example.sunshine.vmovie2.R;
+import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindBean;
 import com.example.sunshine.vmovie2.ui.home.behind.contract.BehindContract;
 import com.example.sunshine.vmovie2.ui.home.behind.model.BehindBeanModel;
 import com.example.sunshine.vmovie2.ui.home.behind.presenter.BehindBeanPresenter;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
+import butterknife.BindView;
 
 /**
  * Created by MartinYun on 2017/4/11.
  */
 
-public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, BehindBeanModel> implements BehindContract.BehindBeanView {
+public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, BehindBeanModel> implements BehindContract.BehindBeanView,PullToRefreshBase.OnRefreshListener2 {
 
     private String cateId;
     private int page;
+    @BindView(R2.id.behind_recycler)
+    PullToRefreshListView refreshListView;
+    private ListView listView;
 
     public String getCateId() {
         return cateId;
@@ -39,7 +49,9 @@ public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, Behind
 
     @Override
     public void initView() {
-
+        refreshListView.setOnRefreshListener(this);
+        refreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+        listView = refreshListView.getRefreshableView();
 
         mPresenter.getBehindBean(cateId, page);
     }
@@ -66,6 +78,17 @@ public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, Behind
 
     @Override
     public void onError(String errorInfo) {
+
+    }
+
+
+    @Override
+    public void onPullDownToRefresh(PullToRefreshBase refreshView) {
+
+    }
+
+    @Override
+    public void onPullUpToRefresh(PullToRefreshBase refreshView) {
 
     }
 }
