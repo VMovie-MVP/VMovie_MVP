@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY"
+        android:id="@+id/chanel_detail_lv_item2_album_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:id="@+id/chanel_detail_lv_item2_album_album_name"
+            android:layout_width="match_parent"
+            android:text="专题"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_marginBottom="10dp"
+            android:id="@+id/chanel_detail_lv_item2_album_line"
+            android:layout_width="40dp"
+            android:background="#fff"
+            android:layout_height="1dp" />
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/chanel_detail_lv_item2_album_title"
+            android:layout_width="match_parent"
+            android:text="春风十里不如你"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/chanel_detail_lv_item2_album_sub"
+            android:layout_width="match_parent"
+            android:text="写给你的三月歌"
+            android:textSize="12sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

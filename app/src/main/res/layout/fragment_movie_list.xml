@@ -1,9 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0ff"
-    tools:context="com.example.sunshine.vmovie2.ui.home.MovieListFragment">
+    android:background="#0ff">
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/movie_list_lv"
         android:layout_width="match_parent"
