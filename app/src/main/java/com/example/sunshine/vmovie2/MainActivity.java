@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.activity_main_cover_click_to_login:
 //                startActivity(new Intent(this,LoginActivity.class));
+                Toast.makeText(this, "去登录页面", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -174,9 +175,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator behind = ObjectAnimator.ofFloat(mRgBehind, "alpha", 0, 1);
         behind.setDuration(300);
         AnimatorSet rgSet = new AnimatorSet();
-        rgSet.play(home);
-        rgSet.play(series).after(300);
-        rgSet.play(behind).after(600);
+//        rgSet.play(home);
+//        rgSet.play(series).after(300);
+//        rgSet.play(behind).after(600);
+        rgSet.play(series).after(home).before(behind);
         rgSet.start();
 
         //关闭按钮的动画
@@ -284,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             try {
                 mShowFragment = (Fragment) Class.forName(tag).newInstance();
-                transaction.add(R.id.activity_main_container, mShowFragment);
+                transaction.add(R.id.activity_main_container, mShowFragment,tag);
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {

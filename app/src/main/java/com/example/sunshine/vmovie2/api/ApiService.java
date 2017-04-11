@@ -1,6 +1,8 @@
 package com.example.sunshine.vmovie2.api;
 
 
+import com.example.sunshine.vmovie2.bean.MovieListBean;
+import com.example.sunshine.vmovie2.bean.MovieListHeadData;
 import com.example.sunshine.vmovie2.bean.SeriesData;
 
 import retrofit2.http.GET;
@@ -17,5 +19,9 @@ public interface ApiService {
     @GET("/apiv3/series/getList")
     Observable<SeriesData> getSeriesData(@Query("p") int p);
 
+    @GET("/apiv3/index/getBanner")
+    Observable<MovieListHeadData> getMovieListViewPager();
 
+    @GET("/apiv3/post/getPostByTab")
+    Observable<MovieListBean> getMovieList(@Query("p") String pageIndex);
 }

@@ -1,22 +1,15 @@
 package com.example.sunshine.vmovie2.ui.home;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.mvplibrary.base.BaseFragment;
 import com.example.sunshine.vmovie2.MainActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.ui.home.adapter.HomeFragmentPagerAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +20,7 @@ import butterknife.BindView;
  */
 public class HomeFragment extends BaseFragment implements  ViewPager.OnPageChangeListener, MainActivity.OnTitleClickListener {
 
-    protected View layout;
-    public static final String TAG = HomeFragment.class.getSimpleName();
+    public static final String TAG = HomeFragment.class.getName();
 
     @BindView(R2.id.fragment_home_viewPager)
     ViewPager mViewPager;
@@ -47,7 +39,7 @@ public class HomeFragment extends BaseFragment implements  ViewPager.OnPageChang
 
 
 
-    @Override
+        @Override
     public int getLayoutId() {
         return R.layout.fragment_home;
     }

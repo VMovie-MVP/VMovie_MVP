@@ -19,4 +19,10 @@
         <item name="android:background">@drawable/control_bg_background_selector</item>
     </style>
 
+    <style name="movie_list_viewpager_view">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@color/colorGray6</item>
+
+    </style>
 </resources>

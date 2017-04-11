@@ -60,8 +60,4 @@ public abstract class BaseFragment<P extends BasePresenter,M extends BaseModel> 
 
     public abstract void initPresenter();
 
-    protected View findViewById(int id) {
-        return layout.findViewById(id);
-    }
-
 }
