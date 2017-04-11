@@ -1,6 +1,7 @@
 package com.example.sunshine.vmovie2.api;
 
 
+import com.example.sunshine.vmovie2.bean.ChanelDetailListBean;
 import com.example.sunshine.vmovie2.bean.ChanelListBean;
 import com.example.sunshine.vmovie2.bean.MovieListBean;
 import com.example.sunshine.vmovie2.bean.MovieListHeadData;
@@ -28,4 +29,15 @@ public interface ApiService {
     //首页频道页面接口
     @GET("/apiv3/cate/getList")
     Observable<ChanelListBean> getChanelList();
+    //频道详情跳转接口
+    //http://app.vmoiver.com/apiv3/post/getPostInCate?cateid=7&p=3
+    @GET("/apiv3/post/getPostInCate")
+    Observable<ChanelDetailListBean> getChanelListDetail(@Query("cateid")String cateId,@Query("p") String pageIndex);
+    ///apiv3/post/getPostByTab?tab=hot
+    @GET("/apiv3/post/getPostByTab")
+    Observable<ChanelDetailListBean> getChanelListDetailTop(@Query("tab") String tab);
+    ///apiv3/post/getPostByTab?tab=album
+    @GET("/apiv3/post/getPostByTab")
+    Observable<ChanelDetailListBean> getChanelAblm(@Query("tab") String tab);
+
 }

@@ -1,6 +1,9 @@
 package com.example.sunshine.vmovie2.ui.home.fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.mvplibrary.base.BaseFragment;
@@ -8,6 +11,7 @@ import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.bean.ChanelBean;
 import com.example.sunshine.vmovie2.bean.ChanelListBean;
+import com.example.sunshine.vmovie2.ui.home.activity.ChanelDetailActivity;
 import com.example.sunshine.vmovie2.ui.home.adapter.ChanelGridAdapter;
 import com.example.sunshine.vmovie2.ui.home.contract.ChanelListContract;
 import com.example.sunshine.vmovie2.ui.home.model.ChanelListModel;
@@ -21,7 +25,7 @@ import butterknife.BindView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChanelListFragment extends BaseFragment<ChanelListPresenter, ChanelListModel> implements ChanelListContract.ChanelListView {
+public class ChanelListFragment extends BaseFragment<ChanelListPresenter, ChanelListModel> implements ChanelListContract.ChanelListView, AdapterView.OnItemClickListener {
     private List<ChanelBean> data=new ArrayList<>();
     @BindView(R2.id.chanel_grid_view)
     GridView mGridView;
@@ -40,6 +44,7 @@ public class ChanelListFragment extends BaseFragment<ChanelListPresenter, Chanel
     public void initView() {
         adapter = new ChanelGridAdapter(null, getContext(), null, R.layout.chanel_gv_item);
         mGridView.setAdapter(adapter);
+        mGridView.setOnItemClickListener(this);
         mPresenter.getChanelList();
     }
 
@@ -66,6 +71,11 @@ public class ChanelListFragment extends BaseFragment<ChanelListPresenter, Chanel
         data.addAll(chanelListBean.getData());
 
         adapter.addRes(data);
+
+        for (int i = 0; i < chanelListBean.getData().size(); i++) {
+            cateIds.add(chanelListBean.getData().get(i).getCateid());
+            cateNames.add(chanelListBean.getData().get(i).getCatename());
+        }
     }
 
     @Override
@@ -81,5 +91,25 @@ public class ChanelListFragment extends BaseFragment<ChanelListPresenter, Chanel
     @Override
     public void onError(String errorInfo) {
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(), ChanelDetailActivity.class);
+        intent.putExtra("cateId",cateIds.get(position));
+        intent.putExtra("position",position);
+
+        if (position==0){
+            intent.putExtra("hot","hot" );
+            intent.putExtra("hotName","热门");
+        }else if (position==1){
+            intent.putExtra("album","album");
+            intent.putExtra("albumName","专题");
+        }else {
+            intent.putExtra("cateId",cateIds.get(position-2));
+            intent.putExtra("cateName",cateNames.get(position-2));
+        }
+
+        startActivity(intent);
     }
 }

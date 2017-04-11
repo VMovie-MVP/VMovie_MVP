@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_chanel_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sunshine.vmovie2.ui.home.activity.ChanelDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/chanel_detail_topBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorBlack">
+
+        <ImageView
+            android:id="@+id/chanel_detail_top_back"
+            android:layout_width="45dp"
+            android:scaleY="0.8"
+            android:scaleX="0.8"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@mipmap/back_icon" />
+
+        <TextView
+            android:id="@+id/chanel_detail_top_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="创意"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:visibility="visible" />
+
+
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/chanel_detail_list_lv"
+        android:layout_below="@id/chanel_detail_topBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+
+
+
+</RelativeLayout>

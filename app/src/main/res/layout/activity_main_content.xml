@@ -9,7 +9,7 @@
         android:id="@+id/activity_main_topbar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@color/colorBack">
+        android:background="@color/colorBlack">
         <!--
                 左边菜单按钮，右边搜索按钮，中间标题
         -->
