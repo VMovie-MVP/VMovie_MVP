@@ -83,7 +83,10 @@ public class BehindFragment extends BaseFragment<BehindPresenter, BehindTitleMod
 
     @Override
     public void onPageSelected(int position) {
-
+        BehindPageFragment pageFragment = tabAdapter.getItem(position);
+        pageFragment.setCateId(behindTitleBean.getData().get(position).getCateid());
+        pageFragment.setPage(1);
+        pageFragment.mPresenter.getBehindBean(behindTitleBean.getData().get(position).getCateid(),1);
     }
 
     @Override

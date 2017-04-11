@@ -9,7 +9,7 @@
         android:id="@+id/behind_tab"
         android:layout_height="55dp"
         android:layout_width="match_parent"
-        app:tabIndicatorHeight="5dp"
+        app:tabIndicatorHeight="2dp"
         app:tabMode="scrollable"
         app:tabIndicatorColor="@color/colorBlack"
         app:tabSelectedTextColor="@color/colorBlack"

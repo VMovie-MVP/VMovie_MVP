@@ -5,6 +5,7 @@ import android.widget.ListView;
 import com.example.mvplibrary.base.BaseFragment;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
+import com.example.sunshine.vmovie2.ui.home.behind.adapter.BehindPageAdapter;
 import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindBean;
 import com.example.sunshine.vmovie2.ui.home.behind.contract.BehindContract;
 import com.example.sunshine.vmovie2.ui.home.behind.model.BehindBeanModel;
@@ -18,13 +19,15 @@ import butterknife.BindView;
  * Created by MartinYun on 2017/4/11.
  */
 
-public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, BehindBeanModel> implements BehindContract.BehindBeanView,PullToRefreshBase.OnRefreshListener2 {
+public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, BehindBeanModel> implements BehindContract.BehindBeanView, PullToRefreshBase.OnRefreshListener2 {
 
-    private String cateId;
-    private int page;
+    private String cateId = "2";
+    private int page = 1;
     @BindView(R2.id.behind_recycler)
     PullToRefreshListView refreshListView;
     private ListView listView;
+    private BehindBean behindBean;
+    private BehindPageAdapter behindPageAdapter;
 
     public String getCateId() {
         return cateId;
@@ -53,6 +56,9 @@ public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, Behind
         refreshListView.setMode(PullToRefreshBase.Mode.BOTH);
         listView = refreshListView.getRefreshableView();
 
+        behindPageAdapter = new BehindPageAdapter(null, getContext(), null, R.layout.behind_lv_item);
+        listView.setAdapter(behindPageAdapter);
+
         mPresenter.getBehindBean(cateId, page);
     }
 
@@ -64,6 +70,14 @@ public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, Behind
     @Override
     public void returnBehindBean(BehindBean behindBean) {
 
+        if (behindBean.getStatus().equals("0") && behindBean.getMsg().equals("OK")) {
+            if (page==1){
+                behindPageAdapter.updateRes(behindBean.getData());
+            }else {
+                behindPageAdapter.addRes(behindBean.getData());
+            }
+        }
+        refreshListView.onRefreshComplete();
     }
 
     @Override
@@ -78,17 +92,19 @@ public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, Behind
 
     @Override
     public void onError(String errorInfo) {
-
+        refreshListView.onRefreshComplete();
     }
 
 
     @Override
     public void onPullDownToRefresh(PullToRefreshBase refreshView) {
-
+        page = 1;
+        mPresenter.getBehindBean(cateId, page);
     }
 
     @Override
     public void onPullUpToRefresh(PullToRefreshBase refreshView) {
-
+          page++;
+        mPresenter.getBehindBean(cateId,page);
     }
 }
