@@ -31,12 +31,6 @@
             android:scaleType="centerInside"
             android:src="@mipmap/video_lan_share" />
     </RelativeLayout>
-    <VideoView
-        android:layout_below="@id/series_detail_topBar"
-        android:id="@+id/series_detail_video"
-        android:layout_width="match_parent"
-        android:layout_height="160dp" />
-
 
 
     <TextView
@@ -103,6 +97,13 @@
             android:textColor="@color/colorGrayA"
             android:textSize="20sp" />
     </LinearLayout>
+    <VideoView
+        android:id="@+id/series_detail_video"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_below="@+id/series_detail_topBar"
+        android:layout_toRightOf="@+id/series_detail_web_not_find"
+        android:layout_toEndOf="@+id/series_detail_web_not_find" />
 
     <WebView
         android:id="@+id/series_detail_web_view"
@@ -110,6 +111,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/series_detail_bottom_layout"
         android:layout_below="@id/series_detail_video" />
+
 
 
 </RelativeLayout>
