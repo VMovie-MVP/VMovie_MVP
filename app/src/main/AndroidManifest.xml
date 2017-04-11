@@ -27,7 +27,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".ui.home.activity.ChanelDetailActivity" />
         <activity android:name=".ui.home.activity.ChanelFinalDetailActivity"/>
-        <activity android:name=".ui.home.activity.BehindDetailActivity"/>
+        <activity android:name=".ui.series.activity.SeriesDetailActivity"/>
     </application>
 
 </manifest>

@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.sunshine.vmovie2.ui.home.HomeFragment;
 import com.example.sunshine.vmovie2.ui.home.behind.BehindFragment;
+import com.example.sunshine.vmovie2.ui.series.SeriesFragment;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -130,8 +131,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     TextView unCheck = (TextView) findViewById(R.id.activity_main_home_title_movie_list);
                     check.setTextColor(getResources().getColor(R.color.colorGray6));
                     unCheck.setTextColor(getResources().getColor(R.color.colorWhite));
-                }else {
-                    Toast.makeText(this, "点击电影列表了,空啊", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.activity_main_home_title_channel_list:
@@ -142,8 +141,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     TextView unCheck = (TextView) findViewById(R.id.activity_main_home_title_channel_list);
                     check.setTextColor(getResources().getColor(R.color.colorGray6));
                     unCheck.setTextColor(getResources().getColor(R.color.colorWhite));
-                }else {
-                    Toast.makeText(this, "点击电影频道了,空啊", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -240,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mHomeTitle.setVisibility(View.VISIBLE);
                 break;
             case R.id.activity_main_cover_rg_series:
-//               switchPage(SeriesFragment.TAG);
+               switchPage(SeriesFragment.TAG);
                 mHomeTitle.setVisibility(View.GONE);
                 mTitle.setVisibility(View.VISIBLE);
                 mTitle.setText("系列");

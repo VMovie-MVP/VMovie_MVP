@@ -21,7 +21,7 @@ public interface ApiService {
     //系列页面接口
     // http://app.vmoiver.com/apiv3/series/getList?p=1
     @GET("/apiv3/series/getList")
-    Observable<SeriesData> getSeriesData(@Query("p") int p);
+    Observable<SeriesData> getSeriesData(@Query("p") String pageIndex);
     //首页最新ViewPager接口
     @GET("/apiv3/index/getBanner")
     Observable<MovieListHeadData> getMovieListViewPager();

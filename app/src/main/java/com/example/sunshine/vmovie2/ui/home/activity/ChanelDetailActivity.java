@@ -12,6 +12,7 @@ import com.example.mvplibrary.base.BaseActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.bean.ChanelDetailListBean;
+import com.example.sunshine.vmovie2.ui.behind.BehindDetailActivity;
 import com.example.sunshine.vmovie2.ui.home.adapter.AlbumAdapter;
 import com.example.sunshine.vmovie2.ui.home.adapter.ChanelDetailAdapter;
 import com.example.sunshine.vmovie2.ui.home.adapter.HotAdapter;
