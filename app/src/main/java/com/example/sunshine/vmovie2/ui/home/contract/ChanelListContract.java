@@ -13,6 +13,7 @@ import rx.Observable;
  */
 
 public interface ChanelListContract {
+
     public abstract class ChanelListContractPresenter extends BasePresenter<ChanelListModelI,ChanelListView> {
         public abstract void getChanelList();
 
