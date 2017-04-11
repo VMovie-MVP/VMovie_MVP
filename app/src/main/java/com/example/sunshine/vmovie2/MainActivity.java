@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 
 import com.example.sunshine.vmovie2.ui.home.HomeFragment;
+import com.example.sunshine.vmovie2.ui.home.behind.BehindFragment;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -239,13 +240,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mHomeTitle.setVisibility(View.VISIBLE);
                 break;
             case R.id.activity_main_cover_rg_series:
-//                switchPage(SeriesFragment.TAG);
+//               switchPage(SeriesFragment.TAG);
                 mHomeTitle.setVisibility(View.GONE);
                 mTitle.setVisibility(View.VISIBLE);
                 mTitle.setText("系列");
                 break;
             case R.id.activity_main_cover_rg_behind:
-//                switchPage(BehindFragment.TAG);
+               switchPage(BehindFragment.TAG);
                 mHomeTitle.setVisibility(View.GONE);
                 mTitle.setVisibility(View.VISIBLE);
                 mTitle.setText("幕后");
