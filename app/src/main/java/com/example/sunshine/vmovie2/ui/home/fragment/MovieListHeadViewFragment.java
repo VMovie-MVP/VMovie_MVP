@@ -1,4 +1,4 @@
-package com.example.sunshine.vmovie2.ui.home.movielisthead.fragment;
+package com.example.sunshine.vmovie2.ui.home.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

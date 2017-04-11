@@ -1,10 +1,10 @@
-package com.example.sunshine.vmovie2.ui.home.movielisthead;
+package com.example.sunshine.vmovie2.ui.home.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.sunshine.vmovie2.ui.home.movielisthead.fragment.MovieListHeadViewFragment;
+import com.example.sunshine.vmovie2.ui.home.fragment.MovieListHeadViewFragment;
 
 import java.util.List;
 

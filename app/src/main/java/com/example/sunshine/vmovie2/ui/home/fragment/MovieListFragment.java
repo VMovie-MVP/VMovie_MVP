@@ -1,8 +1,9 @@
-package com.example.sunshine.vmovie2.ui.home;
+package com.example.sunshine.vmovie2.ui.home.fragment;
 
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -10,10 +11,10 @@ import com.example.mvplibrary.base.BaseFragment;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.bean.MovieListBean;
+import com.example.sunshine.vmovie2.ui.home.HeadViewViewPager;
 import com.example.sunshine.vmovie2.ui.home.adapter.MovieListAdapter;
 import com.example.sunshine.vmovie2.ui.home.contract.MovieListContract;
 import com.example.sunshine.vmovie2.ui.home.model.MovieListModel;
-import com.example.sunshine.vmovie2.ui.home.movielisthead.HeadViewViewPager;
 import com.example.sunshine.vmovie2.ui.home.presenter.MovieListPresenter;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -44,10 +45,10 @@ public class MovieListFragment extends BaseFragment<MovieListPresenter, MovieLis
         mPullToRefresh.setMode(PullToRefreshBase.Mode.BOTH);
         mListView = mPullToRefresh.getRefreshableView();
 
-//        HeadViewViewPager headViewViewPager = new HeadViewViewPager(getActivity());
-//        FragmentManager childFragmentManager = getChildFragmentManager();
-//        headViewViewPager.setFragmentManger(childFragmentManager);
-//        mListView.addHeaderView(headViewViewPager.getHeadView());
+        HeadViewViewPager headViewViewPager = new HeadViewViewPager(getActivity());
+        FragmentManager childFragmentManager = getChildFragmentManager();
+        headViewViewPager.setFragmentManger(childFragmentManager);
+        mListView.addHeaderView(headViewViewPager.getHeadView());
 
         adapter = new MovieListAdapter(null, getContext(), null, R.layout.movie_list_item);
         mListView.setAdapter(adapter);
@@ -61,7 +62,6 @@ public class MovieListFragment extends BaseFragment<MovieListPresenter, MovieLis
 
     @Override
     public void returnMovieListDataBean(MovieListBean movieListBean) {
-        Toast.makeText(getContext(), "movieListBean"+movieListBean.getMsg(), Toast.LENGTH_SHORT).show();
         if (!isAdd) {
             adapter.updateRes(movieListBean.getData());
         } else {
@@ -85,9 +85,8 @@ public class MovieListFragment extends BaseFragment<MovieListPresenter, MovieLis
 
     @Override
     public void onError(String errorInfo) {
-//        Log.e(TAG, "onError:    "+errorInfo );
+        Log.e(TAG, "onError:    "+errorInfo );
 
-        Toast.makeText(getActivity(), "onError--" + errorInfo, Toast.LENGTH_SHORT).show();
     }
 
     //------------------ pullToRefresh 上拉下拉刷新 监听 -------

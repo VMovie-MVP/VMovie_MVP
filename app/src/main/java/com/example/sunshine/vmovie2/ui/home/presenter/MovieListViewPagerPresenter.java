@@ -1,7 +1,7 @@
-package com.example.sunshine.vmovie2.ui.home.movielisthead.presenter;
+package com.example.sunshine.vmovie2.ui.home.presenter;
 
 import com.example.sunshine.vmovie2.bean.MovieListHeadData;
-import com.example.sunshine.vmovie2.ui.home.movielisthead.contract.MovieListViewPagerContract;
+import com.example.sunshine.vmovie2.ui.home.contract.MovieListViewPagerContract;
 
 import rx.Subscriber;
 

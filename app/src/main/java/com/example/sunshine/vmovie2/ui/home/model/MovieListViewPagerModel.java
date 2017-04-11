@@ -1,9 +1,9 @@
-package com.example.sunshine.vmovie2.ui.home.movielisthead.model;
+package com.example.sunshine.vmovie2.ui.home.model;
 
 import com.example.mvplibrary.rxevent.AndroidIOToMain;
 import com.example.sunshine.vmovie2.api.Api;
 import com.example.sunshine.vmovie2.bean.MovieListHeadData;
-import com.example.sunshine.vmovie2.ui.home.movielisthead.contract.MovieListViewPagerContract;
+import com.example.sunshine.vmovie2.ui.home.contract.MovieListViewPagerContract;
 
 import rx.Observable;
 

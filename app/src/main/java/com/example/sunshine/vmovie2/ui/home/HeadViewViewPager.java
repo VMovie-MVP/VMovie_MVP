@@ -1,7 +1,8 @@
-package com.example.sunshine.vmovie2.ui.home.movielisthead;
+package com.example.sunshine.vmovie2.ui.home;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -14,15 +15,14 @@ import com.example.mvplibrary.base.BaseCustomView;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.bean.MovieListHeadData;
-import com.example.sunshine.vmovie2.ui.home.movielisthead.contract.MovieListViewPagerContract;
-import com.example.sunshine.vmovie2.ui.home.movielisthead.fragment.MovieListHeadViewFragment;
-import com.example.sunshine.vmovie2.ui.home.movielisthead.model.MovieListViewPagerModel;
-import com.example.sunshine.vmovie2.ui.home.movielisthead.presenter.MovieListViewPagerPresenter;
+import com.example.sunshine.vmovie2.ui.home.adapter.MovieListViewPagerAdapter;
+import com.example.sunshine.vmovie2.ui.home.contract.MovieListViewPagerContract;
+import com.example.sunshine.vmovie2.ui.home.fragment.MovieListHeadViewFragment;
+import com.example.sunshine.vmovie2.ui.home.model.MovieListViewPagerModel;
+import com.example.sunshine.vmovie2.ui.home.presenter.MovieListViewPagerPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import android.os.Handler;
 
 import butterknife.BindView;
 

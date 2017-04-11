@@ -1,4 +1,4 @@
-package com.example.sunshine.vmovie2.ui.home.movielisthead.contract;
+package com.example.sunshine.vmovie2.ui.home.contract;
 
 import com.example.mvplibrary.base.BaseModel;
 import com.example.mvplibrary.base.BasePresenter;

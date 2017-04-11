@@ -3,8 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff0"
-    tools:context="com.example.sunshine.vmovie2.ui.home.ChanelListFragment">
-
+    tools:context="com.example.sunshine.vmovie2.ui.home.fragment.ChanelListFragment">
+    <GridView
+        android:id="@+id/chanel_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2">
+    </GridView>
 
 
 </FrameLayout>

@@ -10,6 +10,9 @@ import com.example.sunshine.vmovie2.MainActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.ui.home.adapter.HomeFragmentPagerAdapter;
+import com.example.sunshine.vmovie2.ui.home.fragment.ChanelListFragment;
+import com.example.sunshine.vmovie2.ui.home.fragment.MovieListFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
