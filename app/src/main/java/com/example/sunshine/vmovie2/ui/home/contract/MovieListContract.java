@@ -21,10 +21,10 @@ public interface MovieListContract {
     interface MovieListModelI extends BaseModel {
         Observable<MovieListBean> getMovieListDataBean(String pageIndex);
     }
+
     //定义View
     interface MovieListView extends BaseView {
         void returnMovieListDataBean(MovieListBean movieListBean);
-
 
     }
 }
