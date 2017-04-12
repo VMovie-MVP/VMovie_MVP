@@ -1,12 +1,9 @@
-package com.example.sunshine.vmovie2.ui.home.behind.model;
+package com.example.sunshine.vmovie2.ui.behind.model;
 
 import com.example.mvplibrary.rxevent.AndroidIOToMain;
 import com.example.sunshine.vmovie2.api.Api;
-import com.example.sunshine.vmovie2.bean.MovieListBean;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindBean;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindTitleBean;
-import com.example.sunshine.vmovie2.ui.home.behind.contract.BehindContract;
-import com.example.sunshine.vmovie2.ui.home.behind.contract.BehindTitleContract;
+import com.example.sunshine.vmovie2.ui.behind.bean.BehindBean;
+import com.example.sunshine.vmovie2.ui.behind.contract.BehindContract;
 
 import rx.Observable;
 

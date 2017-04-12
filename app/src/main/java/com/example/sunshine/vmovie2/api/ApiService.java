@@ -6,8 +6,8 @@ import com.example.sunshine.vmovie2.bean.ChanelListBean;
 import com.example.sunshine.vmovie2.bean.MovieListBean;
 import com.example.sunshine.vmovie2.bean.MovieListHeadData;
 import com.example.sunshine.vmovie2.bean.SeriesData;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindBean;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindTitleBean;
+import com.example.sunshine.vmovie2.ui.behind.bean.BehindBean;
+import com.example.sunshine.vmovie2.ui.behind.bean.BehindTitleBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

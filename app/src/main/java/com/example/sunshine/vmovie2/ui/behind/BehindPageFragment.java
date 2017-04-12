@@ -1,15 +1,15 @@
-package com.example.sunshine.vmovie2.ui.home.behind;
+package com.example.sunshine.vmovie2.ui.behind;
 
 import android.widget.ListView;
 
 import com.example.mvplibrary.base.BaseFragment;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
-import com.example.sunshine.vmovie2.ui.home.behind.adapter.BehindPageAdapter;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindBean;
-import com.example.sunshine.vmovie2.ui.home.behind.contract.BehindContract;
-import com.example.sunshine.vmovie2.ui.home.behind.model.BehindBeanModel;
-import com.example.sunshine.vmovie2.ui.home.behind.presenter.BehindBeanPresenter;
+import com.example.sunshine.vmovie2.ui.behind.adapter.BehindPageAdapter;
+import com.example.sunshine.vmovie2.ui.behind.bean.BehindBean;
+import com.example.sunshine.vmovie2.ui.behind.contract.BehindContract;
+import com.example.sunshine.vmovie2.ui.behind.model.BehindBeanModel;
+import com.example.sunshine.vmovie2.ui.behind.presenter.BehindBeanPresenter;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
