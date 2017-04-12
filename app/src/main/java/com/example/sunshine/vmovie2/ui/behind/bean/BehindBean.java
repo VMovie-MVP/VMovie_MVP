@@ -1,4 +1,4 @@
-package com.example.sunshine.vmovie2.ui.home.behind.bean;
+package com.example.sunshine.vmovie2.ui.behind.bean;
 
 import java.util.List;
 

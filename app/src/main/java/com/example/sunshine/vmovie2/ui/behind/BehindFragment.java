@@ -1,19 +1,16 @@
-package com.example.sunshine.vmovie2.ui.home.behind;
+package com.example.sunshine.vmovie2.ui.behind;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.example.mvplibrary.base.BaseFragment;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
-import com.example.sunshine.vmovie2.ui.home.behind.adapter.BehindTabAdapter;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindTitleBean;
-import com.example.sunshine.vmovie2.ui.home.behind.contract.BehindTitleContract;
-import com.example.sunshine.vmovie2.ui.home.behind.model.BehindTitleModel;
-import com.example.sunshine.vmovie2.ui.home.behind.presenter.BehindPresenter;
-
-import java.util.List;
+import com.example.sunshine.vmovie2.ui.behind.adapter.BehindTabAdapter;
+import com.example.sunshine.vmovie2.ui.behind.bean.BehindTitleBean;
+import com.example.sunshine.vmovie2.ui.behind.contract.BehindTitleContract;
+import com.example.sunshine.vmovie2.ui.behind.model.BehindTitleModel;
+import com.example.sunshine.vmovie2.ui.behind.presenter.BehindPresenter;
 
 import butterknife.BindView;
 

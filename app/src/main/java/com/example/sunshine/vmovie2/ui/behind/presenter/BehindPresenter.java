@@ -1,8 +1,7 @@
-package com.example.sunshine.vmovie2.ui.home.behind.presenter;
+package com.example.sunshine.vmovie2.ui.behind.presenter;
 
-import com.example.mvplibrary.base.BasePresenter;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindTitleBean;
-import com.example.sunshine.vmovie2.ui.home.behind.contract.BehindTitleContract;
+import com.example.sunshine.vmovie2.ui.behind.bean.BehindTitleBean;
+import com.example.sunshine.vmovie2.ui.behind.contract.BehindTitleContract;
 
 import rx.Subscriber;
 

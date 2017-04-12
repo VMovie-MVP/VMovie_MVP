@@ -1,11 +1,10 @@
-package com.example.sunshine.vmovie2.ui.home.behind.adapter;
+package com.example.sunshine.vmovie2.ui.behind.adapter;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.sunshine.vmovie2.ui.home.behind.BehindPageFragment;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindTitleBean;
+import com.example.sunshine.vmovie2.ui.behind.BehindPageFragment;
+import com.example.sunshine.vmovie2.ui.behind.bean.BehindTitleBean;
 
 import java.util.ArrayList;
 import java.util.List;

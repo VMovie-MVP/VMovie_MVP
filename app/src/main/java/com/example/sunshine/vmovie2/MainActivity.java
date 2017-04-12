@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 
 import com.example.sunshine.vmovie2.ui.home.HomeFragment;
-import com.example.sunshine.vmovie2.ui.home.behind.BehindFragment;
+import com.example.sunshine.vmovie2.ui.behind.BehindFragment;
 import com.example.sunshine.vmovie2.ui.series.SeriesFragment;
 
 import java.util.Timer;

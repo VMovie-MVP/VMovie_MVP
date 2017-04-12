@@ -1,14 +1,11 @@
-package com.example.sunshine.vmovie2.ui.home.behind.adapter;
+package com.example.sunshine.vmovie2.ui.behind.adapter;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mvplibrary.base.BaseLvAdapter;
 import com.example.sunshine.vmovie2.R;
-import com.example.sunshine.vmovie2.ui.home.behind.bean.BehindBean;
-import com.squareup.picasso.Picasso;
+import com.example.sunshine.vmovie2.ui.behind.bean.BehindBean;
 
 import java.util.List;
 
