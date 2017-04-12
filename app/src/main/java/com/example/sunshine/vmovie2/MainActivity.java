@@ -3,6 +3,8 @@ package com.example.sunshine.vmovie2;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -18,9 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.sunshine.vmovie2.ui.LoginActivity;
 import com.example.sunshine.vmovie2.ui.home.HomeFragment;
 import com.example.sunshine.vmovie2.ui.behind.BehindFragment;
 import com.example.sunshine.vmovie2.ui.series.SeriesFragment;
+import com.squareup.picasso.Picasso;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -60,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView mMovieListTitle;
     @BindView(R2.id.activity_main_home_title_channel_list)
     TextView mChannelListTitle;
+    @BindView(R2.id.activity_main_cover_click_to_login_text)
+    TextView mLoginText;
 
     private OnTitleClickListener onTitleClickListener;
 
@@ -122,9 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // TODO: 2017/3/6 跳转搜索页面
                 break;
             case R.id.activity_main_home_title_movie_list:
-                Log.e(TAG, "onClick: 点击电影列表了 " );
                 //点击的时候，触发接口中的方法
-
                 if (onTitleClickListener != null) {
                     onTitleClickListener.onMovieTitleClick();
                     TextView check = (TextView) findViewById(R.id.activity_main_home_title_channel_list);
@@ -134,7 +138,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.activity_main_home_title_channel_list:
-                Log.e(TAG, "onClick: 点击频道按钮了" );
                 if (onTitleClickListener != null) {
                     onTitleClickListener.onChannelTitleClick();
                     TextView check = (TextView) findViewById(R.id.activity_main_home_title_movie_list);
@@ -146,13 +149,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.activity_main_cover_click_to_login:
 //                startActivity(new Intent(this,LoginActivity.class));
-                Toast.makeText(this, "去登录页面", Toast.LENGTH_SHORT).show();
+                startActivityForResult(new Intent(this, LoginActivity.class), 100);
                 break;
         }
     }
 
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == 200) {
+            String photoUrl = data.getStringExtra("photo");
+            String name = data.getStringExtra("name");
+            Log.e(TAG, "onActivityResult: photo-------->"+photoUrl );
+            Log.e(TAG, "onActivityResult: name-------->"+name );
+            Picasso.with(this).load(Uri.parse(photoUrl)).placeholder(R.mipmap.ic_launcher).into(mLogin);
+            mLoginText.setText(name);
+        }
+    }
 
     private void showCover() {
         mCover.setVisibility(View.VISIBLE);
@@ -237,13 +250,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mHomeTitle.setVisibility(View.VISIBLE);
                 break;
             case R.id.activity_main_cover_rg_series:
-               switchPage(SeriesFragment.TAG);
+                switchPage(SeriesFragment.TAG);
                 mHomeTitle.setVisibility(View.GONE);
                 mTitle.setVisibility(View.VISIBLE);
                 mTitle.setText("系列");
                 break;
             case R.id.activity_main_cover_rg_behind:
-               switchPage(BehindFragment.TAG);
+                switchPage(BehindFragment.TAG);
                 mHomeTitle.setVisibility(View.GONE);
                 mTitle.setVisibility(View.VISIBLE);
                 mTitle.setText("幕后");
@@ -284,7 +297,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             try {
                 mShowFragment = (Fragment) Class.forName(tag).newInstance();
-                transaction.add(R.id.activity_main_container, mShowFragment,tag);
+                transaction.add(R.id.activity_main_container, mShowFragment, tag);
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -340,7 +353,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIndicator.setTranslationX(offset * width / 2);
 
     }
-
 
 
     /**

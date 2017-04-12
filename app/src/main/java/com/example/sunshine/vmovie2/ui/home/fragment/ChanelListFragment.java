@@ -96,7 +96,7 @@ public class ChanelListFragment extends BaseFragment<ChanelListPresenter, Chanel
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getActivity(), ChanelDetailActivity.class);
-        intent.putExtra("cateId",cateIds.get(position));
+
         intent.putExtra("position",position);
 
         if (position==0){

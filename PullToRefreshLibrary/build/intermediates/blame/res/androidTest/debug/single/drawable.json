@@ -4,15 +4,7 @@
         "source": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
     },
     {
-        "merged": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
-        "source": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
-    },
-    {
         "merged": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
         "source": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
-    },
-    {
-        "merged": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
-        "source": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
     }
 ]

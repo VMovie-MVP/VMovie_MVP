@@ -30,7 +30,6 @@ public class SeriesFragment extends BaseFragment<SeriesPresenter, SeriesModel> i
     PullToRefreshListView mPullToRefresh;
     private ListView mListView;
 
-    private List<SeriesData.SeriesBeans> seriesData = new ArrayList<>();
     private int page = 1;
     private boolean isAdd;
     private List<String> seriesIds = new ArrayList<>();

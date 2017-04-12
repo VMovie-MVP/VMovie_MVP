@@ -26,6 +26,7 @@ import com.example.mvplibrary.base.BaseActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.constant.HttpParams;
+import com.example.sunshine.vmovie2.ui.LoginActivity;
 import com.example.sunshine.vmovie2.widget.AudioController;
 import com.example.sunshine.vmovie2.widget.LightnessController;
 import com.example.sunshine.vmovie2.widget.MyVideoView;
@@ -136,13 +137,13 @@ public class MovieDetailActivity extends BaseActivity implements Handler.Callbac
                 finish();
                 break;
             case R.id.movie_detail_bottom_like:
-//                startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 Toast.makeText(this, "like", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.movie_detail_bottom_share:
             case R.id.movie_detail_top_share:
                 Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
     }

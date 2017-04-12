@@ -1,7 +1,6 @@
 package com.example.sunshine.vmovie2;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
@@ -17,7 +16,6 @@ public class SplashActivity extends BaseActivity implements Animation.AnimationL
     @BindView(R2.id.splash_image)
     ImageView mImage;
 
-    private ImageView mSplashBackGround;
     private boolean isGuideShow;
 
     @Override

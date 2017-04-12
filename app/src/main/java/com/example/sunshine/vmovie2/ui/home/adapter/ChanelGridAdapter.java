@@ -5,7 +5,6 @@ import android.util.Log;
 import com.example.mvplibrary.base.BaseLvAdapter;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.bean.ChanelBean;
-
 import java.util.List;
 
 /**
@@ -23,7 +22,9 @@ public class ChanelGridAdapter extends BaseLvAdapter<ChanelBean> {
     @Override
     protected void bindData(ViewHolder holder, ChanelBean item, int position) {
         Log.e(TAG, "bindData: "+item.getCatename());
-        holder.setText(R.id.chanel_gv_title,item.getCatename());
+        holder.setText(R.id.chanel_gv_title,String.format("#%s#",item.getCatename()));
         holder.setImage(R.id.chanel_gv_image,item.getIcon());
     }
 }
+
+

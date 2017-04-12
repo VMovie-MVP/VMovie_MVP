@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 
 import com.squareup.picasso.Picasso;
 
+import cn.sharesdk.framework.ShareSDK;
+
 /**
  * Created by sunshine on 2017/4/10.
  */
@@ -14,6 +16,7 @@ public class BaseApp extends Application {
     public void onCreate() {
         super.onCreate();
         initPicasso();
+        ShareSDK.initSDK(this);
 
     }
 

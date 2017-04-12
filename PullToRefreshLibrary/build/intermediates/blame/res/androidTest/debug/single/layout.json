@@ -1,13 +1,5 @@
 [
     {
-        "merged": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_horizontal.xml",
-        "source": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_horizontal.xml"
-    },
-    {
-        "merged": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_vertical.xml",
-        "source": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_vertical.xml"
-    },
-    {
         "merged": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_vertical.xml",
         "source": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_vertical.xml"
     },

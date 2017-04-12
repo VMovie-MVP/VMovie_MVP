@@ -9,4 +9,6 @@
     <color name="colorGray6">#ff666666</color>
     <color name="colorGrayA">#ffaaaaaa</color>
     <color name="colorGray9">#ff999999</color>
+    <color name="color_alpha_0">#00ffffff</color>
+    <color name="color_alpha_black_3">#33000000</color>
 </resources>
