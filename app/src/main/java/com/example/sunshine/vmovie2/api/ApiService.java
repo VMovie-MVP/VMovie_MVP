@@ -51,6 +51,9 @@ public interface ApiService {
     //http://app.vmoiver.com/apiv3/backstage/getPostByCate
     @GET("/apiv3/backstage/getPostByCate")
     Observable<BehindBean> getBehindBean(@Query("cateid")String cateid,@Query("p") int p);
-
-
+    //幕后内容详情
+    //  http://app.vmoiver.com/apiv3/post/view
+    //WebView 展示  app.vmoiver.com/postid?qingapp=app_new
+//    @GET("/apiv3/post/view")
+//    Observable<>
 }

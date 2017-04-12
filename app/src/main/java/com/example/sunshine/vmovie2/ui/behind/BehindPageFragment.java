@@ -1,5 +1,8 @@
 package com.example.sunshine.vmovie2.ui.behind;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.mvplibrary.base.BaseFragment;
@@ -19,7 +22,7 @@ import butterknife.BindView;
  * Created by MartinYun on 2017/4/11.
  */
 
-public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, BehindBeanModel> implements BehindContract.BehindBeanView, PullToRefreshBase.OnRefreshListener2 {
+public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, BehindBeanModel> implements BehindContract.BehindBeanView, PullToRefreshBase.OnRefreshListener2, AdapterView.OnItemClickListener {
 
     private String cateId = "2";
     private int page = 1;
@@ -58,6 +61,7 @@ public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, Behind
 
         behindPageAdapter = new BehindPageAdapter(null, getContext(), null, R.layout.behind_lv_item);
         listView.setAdapter(behindPageAdapter);
+        listView.setOnItemClickListener(this);
 
         mPresenter.getBehindBean(cateId, page);
     }
@@ -69,11 +73,11 @@ public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, Behind
 
     @Override
     public void returnBehindBean(BehindBean behindBean) {
-
+        this.behindBean = behindBean;
         if (behindBean.getStatus().equals("0") && behindBean.getMsg().equals("OK")) {
-            if (page==1){
+            if (page == 1) {
                 behindPageAdapter.updateRes(behindBean.getData());
-            }else {
+            } else {
                 behindPageAdapter.addRes(behindBean.getData());
             }
         }
@@ -104,7 +108,17 @@ public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, Behind
 
     @Override
     public void onPullUpToRefresh(PullToRefreshBase refreshView) {
-          page++;
-        mPresenter.getBehindBean(cateId,page);
+        page++;
+        mPresenter.getBehindBean(cateId, page);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getContext(), BehindDetailActivity.class);
+        intent.putExtra("like_num", behindBean.getData().get(position).getLike_num());
+        intent.putExtra("share_num", behindBean.getData().get(position).getShare_num());
+        intent.putExtra("request_url", behindBean.getData().get(position).getRequest_url());
+//            intent.putExtra("comment_num",)
+        startActivity(intent);
     }
 }
