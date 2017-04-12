@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorBlack">#FF000000</color>
+    <color name="loading_bg">#cc1a1919</color>
     <color name="colorWhite">#ffffffff</color>
     <color name="colorGray3">#44333333</color>
     <color name="colorGray6">#ff666666</color>

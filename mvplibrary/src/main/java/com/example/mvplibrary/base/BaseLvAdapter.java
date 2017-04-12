@@ -169,7 +169,7 @@ public abstract class BaseLvAdapter<B> extends BaseAdapter{
 
         public void setImage(int resId,String url){
             ImageView imageView = (ImageView) getView(resId);
-            Picasso.with(itemView.getContext()).load(url).placeholder(R.drawable.loading).into(imageView);
+            Picasso.with(itemView.getContext()).load(url).into(imageView);
         }
 
     }

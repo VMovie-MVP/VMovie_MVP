@@ -59,9 +59,7 @@ public class MovieListHeadViewFragment extends Fragment implements View.OnClickL
         imageView.setOnClickListener(this);
 
         Picasso.with(getContext())
-
                 .load(getUrl())
-                .placeholder(R.mipmap.ic_launcher)
                 .into(imageView);
         //  Log.e("TAG", "onCreateView: +++++++++++++" +getUrl());
         //  container.addView(view);

@@ -5,11 +5,11 @@
     android:orientation="vertical">
 
     <ImageView
+        android:background="@color/loading_bg"
         android:id="@+id/series_lv_item_image"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher" />
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/series_lv_item_title"

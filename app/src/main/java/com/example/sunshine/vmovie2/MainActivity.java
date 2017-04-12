@@ -24,6 +24,7 @@ import com.example.sunshine.vmovie2.ui.LoginActivity;
 import com.example.sunshine.vmovie2.ui.home.HomeFragment;
 import com.example.sunshine.vmovie2.ui.behind.BehindFragment;
 import com.example.sunshine.vmovie2.ui.series.SeriesFragment;
+import com.example.sunshine.vmovie2.widget.RoundImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.Timer;
@@ -31,6 +32,7 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R2.id.activity_main_cover)
     View mCover;
     @BindView(R2.id.activity_main_cover_click_to_login)
-    ImageView mLogin;
+    RoundImageView mLogin;
     @BindView(R2.id.activity_main_open_side)
     ImageView openCover;
     @BindView(R2.id.activity_main_cover_close)
@@ -162,7 +164,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String name = data.getStringExtra("name");
             Log.e(TAG, "onActivityResult: photo-------->"+photoUrl );
             Log.e(TAG, "onActivityResult: name-------->"+name );
-            Picasso.with(this).load(Uri.parse(photoUrl)).placeholder(R.mipmap.ic_launcher).into(mLogin);
+            Picasso.with(this).load(Uri.parse(photoUrl)).placeholder(R.mipmap.ic_launcher)
+                    .transform(new CropCircleTransformation())
+                    .into(mLogin);
             mLoginText.setText(name);
         }
     }
@@ -186,9 +190,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator behind = ObjectAnimator.ofFloat(mRgBehind, "alpha", 0, 1);
         behind.setDuration(300);
         AnimatorSet rgSet = new AnimatorSet();
-//        rgSet.play(home);
-//        rgSet.play(series).after(300);
-//        rgSet.play(behind).after(600);
         rgSet.play(series).after(home).before(behind);
         rgSet.start();
 

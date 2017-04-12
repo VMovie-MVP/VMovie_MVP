@@ -187,7 +187,7 @@ public abstract class BaseRvAdaptrer<B> extends RecyclerView.Adapter<BaseRvAdapt
 
         public void setImage(int resId, String url) {
             ImageView imageView = (ImageView) getView(resId);
-            Picasso.with(itemView.getContext()).load(url).placeholder(R.drawable.loading).into(imageView);
+            Picasso.with(itemView.getContext()).load(url).into(imageView);
         }
 
 

@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/movie_list_viewpager_image"
-        android:src="@mipmap/ic_launcher"
+       android:background="@color/loading_bg"
         android:scaleType="fitXY"
         />
 </LinearLayout>

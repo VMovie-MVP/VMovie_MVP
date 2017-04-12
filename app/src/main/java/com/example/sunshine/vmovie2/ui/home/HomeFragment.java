@@ -71,7 +71,6 @@ public class HomeFragment extends BaseFragment implements  ViewPager.OnPageChang
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        Toast.makeText(mMainActivity, "onPageScrolled", Toast.LENGTH_SHORT).show();
         if (mMainActivity != null) {
             mMainActivity.moveTitleIndicator(position + positionOffset);
         }
