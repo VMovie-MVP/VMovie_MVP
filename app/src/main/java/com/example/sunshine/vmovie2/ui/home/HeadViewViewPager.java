@@ -115,10 +115,16 @@ public class HeadViewViewPager extends BaseCustomView<MovieListViewPagerPresente
             MovieListHeadViewFragment fragment = new MovieListHeadViewFragment();
             if (i == 0) {
                 fragment.setUrl(movieListHeadData.getData().get(movieListHeadData.getData().size() - 1).getImage());
+                fragment.setType(movieListHeadData.getData().get(movieListHeadData.getData().size() - 1).getExtra_data().getApp_banner_type());
+                fragment.setParam(movieListHeadData.getData().get(movieListHeadData.getData().size() - 1).getExtra_data().getApp_banner_param());
             } else if (i == movieListHeadData.getData().size() + 1) {
                 fragment.setUrl(movieListHeadData.getData().get(0).getImage());
+                fragment.setType(movieListHeadData.getData().get(0).getExtra_data().getApp_banner_type());
+                fragment.setParam(movieListHeadData.getData().get(0).getExtra_data().getApp_banner_param());
             } else {
                 fragment.setUrl(movieListHeadData.getData().get(i - 1).getImage());
+                fragment.setType(movieListHeadData.getData().get(i - 1).getExtra_data().getApp_banner_type());
+                fragment.setParam(movieListHeadData.getData().get(i - 1).getExtra_data().getApp_banner_param());
             }
             data.add(fragment);
         }

@@ -1,11 +1,13 @@
 package com.example.sunshine.vmovie2.ui.behind;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mvplibrary.base.BaseActivity;
@@ -19,6 +21,7 @@ import butterknife.BindView;
  */
 public class BehindDetailActivity extends BaseActivity implements View.OnClickListener {
 
+    private static final String TAG = BehindDetailActivity.class.getSimpleName();
     @BindView(R2.id.behind_detail_web_view)
     WebView mWebView;
     @BindView(R2.id.behind_detail_top_back)
@@ -31,6 +34,11 @@ public class BehindDetailActivity extends BaseActivity implements View.OnClickLi
     TextView shareView;
     @BindView(R2.id.behind_detail_bottom_comment)
     TextView commentView;
+    @BindView(R2.id.behind_detail_bottom_layout)
+    LinearLayout bottomLayout;
+    @BindView(R2.id.behind_detail_title)
+    TextView title;
+
 
 
     @Override
@@ -49,7 +57,17 @@ public class BehindDetailActivity extends BaseActivity implements View.OnClickLi
         String requestUrl = intent.getStringExtra("request_url");
         String likeNum = intent.getStringExtra("like_num");
         String shareNum = intent.getStringExtra("share_num");
+        String header = intent.getStringExtra("header");
 
+
+        Log.e(TAG, "initView: ======"+requestUrl );
+
+        if (header != null) {
+            bottomLayout.setVisibility(View.GONE);
+            Log.e(TAG, "initView: ======"+requestUrl );
+           title.setText("标题");
+
+        }
         if (requestUrl.equals("")) {
             TextView emptyText = (TextView) findViewById(R.id.behind_detail_web_not_find);
             emptyText.setVisibility(View.VISIBLE);
@@ -97,6 +115,7 @@ public class BehindDetailActivity extends BaseActivity implements View.OnClickLi
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
+            Log.e(TAG, "shouldOverrideUrlLoading: "+url );
             return true;
         }
     }

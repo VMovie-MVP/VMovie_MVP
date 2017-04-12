@@ -109,6 +109,7 @@ public class MovieDetailActivity extends BaseActivity implements Handler.Callbac
         String shareNum = intent.getStringExtra("share_num");
 
         String detailUrl="http://app.vmoiver.com/"+postId+"?qingapp=app_new";
+
         if (postId.equals("")) {
             TextView emptyText = (TextView) findViewById(R.id.movie_detail_web_not_find);
             emptyText.setVisibility(View.VISIBLE);

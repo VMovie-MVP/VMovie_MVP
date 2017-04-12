@@ -54,6 +54,6 @@ public interface ApiService {
     //幕后内容详情
     //  http://app.vmoiver.com/apiv3/post/view
     //WebView 展示  app.vmoiver.com/postid?qingapp=app_new
-//    @GET("/apiv3/post/view")
-//    Observable<>
+
+
 }
