@@ -4,9 +4,8 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.widget.Toast;
+
 import com.example.mvplibrary.base.BaseFragment;
-import com.example.sunshine.vmovie2.MainActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.ui.home.adapter.HomeFragmentPagerAdapter;

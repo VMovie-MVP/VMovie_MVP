@@ -1,4 +1,4 @@
-package com.example.sunshine.vmovie2;
+package com.example.sunshine.vmovie2.ui.main;
 
 import android.content.Intent;
 import android.view.WindowManager;
@@ -7,6 +7,8 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
 import com.example.mvplibrary.base.BaseActivity;
+import com.example.sunshine.vmovie2.R;
+import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.utils.SpfUtil;
 
 import butterknife.BindView;

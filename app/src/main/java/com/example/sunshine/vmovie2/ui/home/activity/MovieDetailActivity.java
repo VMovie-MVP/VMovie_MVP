@@ -21,13 +21,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mvplibrary.base.BaseActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.constant.HttpParams;
-import com.example.sunshine.vmovie2.ui.LoginActivity;
 import com.example.sunshine.vmovie2.utils.ShareUtil;
 import com.example.sunshine.vmovie2.widget.AudioController;
 import com.example.sunshine.vmovie2.widget.LightnessController;

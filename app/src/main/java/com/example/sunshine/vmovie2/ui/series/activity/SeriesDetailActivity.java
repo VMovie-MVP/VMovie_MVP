@@ -1,25 +1,20 @@
 package com.example.sunshine.vmovie2.ui.series.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.example.mvplibrary.base.BaseActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.constant.HttpParams;
-import com.example.sunshine.vmovie2.ui.LoginActivity;
 import com.example.sunshine.vmovie2.utils.ShareUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.OnItemClick;
 
 /**
  * Created by sunshine on 2017/4/11.

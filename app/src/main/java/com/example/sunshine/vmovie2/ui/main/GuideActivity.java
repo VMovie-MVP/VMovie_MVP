@@ -1,4 +1,4 @@
-package com.example.sunshine.vmovie2;
+package com.example.sunshine.vmovie2.ui.main;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
@@ -11,7 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.mvplibrary.base.BaseActivity;
-import com.example.sunshine.vmovie2.ui.main.GuideAdapter;
+import com.example.sunshine.vmovie2.R;
+import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.utils.SpfUtil;
 
 import java.util.ArrayList;

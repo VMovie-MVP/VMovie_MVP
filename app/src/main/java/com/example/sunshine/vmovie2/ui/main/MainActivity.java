@@ -1,15 +1,16 @@
-package com.example.sunshine.vmovie2;
+package com.example.sunshine.vmovie2.ui.main;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -19,10 +20,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.example.sunshine.vmovie2.ui.LoginActivity;
-import com.example.sunshine.vmovie2.ui.home.HomeFragment;
+import com.example.sunshine.vmovie2.R;
+import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.ui.behind.BehindFragment;
+import com.example.sunshine.vmovie2.ui.home.HomeFragment;
 import com.example.sunshine.vmovie2.ui.series.SeriesFragment;
 import com.squareup.picasso.Picasso;
 
@@ -31,7 +32,6 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @BindView(R2.id.activity_main_cover_click_to_login_text)
     TextView mLoginText;
 
+    private boolean isLogin=false;
+
     private OnTitleClickListener onTitleClickListener;
 
     public void setOnTitleClickListener(OnTitleClickListener onTitleClickListener) {
@@ -109,19 +111,41 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.setting_imageView2:
-                Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
+                if (!isLogin){
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
+                }else {
+                    Toast.makeText(this, "去设置页面", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.activity_main_cover_click_to_login:
-                startActivityForResult(new Intent(this, LoginActivity.class), 100);
+//                notInDetail();
+                if (!isLogin) {
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
+                    isLogin=true;
+                } else {
+                    Toast.makeText(this, "确认退出?", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.message_imageView3:
-                Toast.makeText(this, "消息", Toast.LENGTH_SHORT).show();
+                if (!isLogin){
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
+                }else {
+                    Toast.makeText(this, "去消息页面", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.main_cover_my_cache:
-                Toast.makeText(this, "我的缓存", Toast.LENGTH_SHORT).show();
+                if (!isLogin){
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
+                }else {
+                    Toast.makeText(this, "我的缓存", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.main_cover_my_like:
-                Toast.makeText(this, "我喜欢的", Toast.LENGTH_SHORT).show();
+                if (!isLogin){
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
+                }else {
+                    Toast.makeText(this, "我喜欢的", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.activity_main_open_side:
                 showCover();
@@ -160,6 +184,34 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         }
     }
 
+    private boolean judgeIsLogin() {
+        SharedPreferences sp = getSharedPreferences("isFirstLogin", MODE_PRIVATE);
+        boolean isLogin = sp.getBoolean("isLogin", false);
+        return isLogin;
+    }
+
+    private void notInDetail() {
+        SharedPreferences sp = getSharedPreferences("isFirstLogin", MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putBoolean("isInDetail", false);
+        edit.commit();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == 200) {
+            String photoUrl = data.getStringExtra("photo");
+            String name = data.getStringExtra("name");
+            Log.e(TAG, "onActivityResult: photo-------->" + photoUrl);
+            Log.e(TAG, "onActivityResult: name-------->" + name);
+            Picasso.with(this).load(Uri.parse(photoUrl)).placeholder(R.mipmap.ic_launcher)
+                    .transform(new CropCircleTransformation())
+                    .into(mLogin);
+            mLoginText.setText(name);
+        }
+    }
+
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId) {
@@ -184,20 +236,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         mCover.setVisibility(View.GONE);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 && resultCode == 200) {
-            String photoUrl = data.getStringExtra("photo");
-            String name = data.getStringExtra("name");
-            Log.e(TAG, "onActivityResult: photo-------->" + photoUrl);
-            Log.e(TAG, "onActivityResult: name-------->" + name);
-            Picasso.with(this).load(Uri.parse(photoUrl)).placeholder(R.mipmap.ic_launcher)
-                    .transform(new CropCircleTransformation())
-                    .into(mLogin);
-            mLoginText.setText(name);
-        }
-    }
 
     private void showCover() {
         mCover.setVisibility(View.VISIBLE);
@@ -374,4 +412,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         void onChannelTitleClick();
 
     }
+
+
 }
