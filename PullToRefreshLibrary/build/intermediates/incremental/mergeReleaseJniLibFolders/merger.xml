@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\studio\StudioWorkspace\VMovie2\PullToRefreshLibrary\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="E:\studio\StudioWorkspace\VMovie2\PullToRefreshLibrary\src\release\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="F:\studioWorkBase\MyProject\VMovie_MVP\PullToRefreshLibrary\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="F:\studioWorkBase\MyProject\VMovie_MVP\PullToRefreshLibrary\src\release\jniLibs"/></dataSet></merger>

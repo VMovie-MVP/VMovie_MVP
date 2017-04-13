@@ -1,12 +1,12 @@
 package com.example.sunshine.vmovie2.bean;
 
 /**
- * Created by sunshine on 2017/4/11.
+ * Created by MartinYun on 2017/4/12.
  */
-
-public class MovieListHeadBean {
+ class MovieListHeadBean {
     private String image;
     private ExtraData extra_data;
+
 
     public String getImage() {
         return image;
