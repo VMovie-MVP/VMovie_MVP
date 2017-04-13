@@ -4,8 +4,20 @@
         "source": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_flip.png"
     },
     {
+        "merged": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\indicator_arrow.png",
+        "source": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\indicator_arrow.png"
+    },
+    {
+        "merged": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_flip.png",
+        "source": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_flip.png"
+    },
+    {
         "merged": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_rotate.png",
         "source": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_rotate.png"
+    },
+    {
+        "merged": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_rotate.png",
+        "source": "F:\\studioWorkBase\\MyProject\\VMovie_MVP\\PullToRefreshLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_rotate.png"
     },
     {
         "merged": "E:\\studio\\StudioWorkspace\\VMovie2\\PullToRefreshLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\indicator_arrow.png",

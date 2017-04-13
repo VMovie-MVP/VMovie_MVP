@@ -2,6 +2,7 @@ package com.example.sunshine.vmovie2.ui.behind;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 
 import com.example.mvplibrary.base.BaseFragment;
 import com.example.sunshine.vmovie2.R;
@@ -36,6 +37,7 @@ public class BehindFragment extends BaseFragment<BehindPresenter, BehindTitleMod
 
     @Override
     public void initView() {
+
         tabAdapter = new BehindTabAdapter(getActivity().getSupportFragmentManager(), null);
         viewPager.setAdapter(tabAdapter);
         tabLayout.setupWithViewPager(viewPager);
