@@ -86,8 +86,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     private void login() {
-        String email = emailEdit.getText().toString();
-        String password = passwordEdit.getText().toString();
+        String email = emailEdit.getText().toString().trim();
+        String password = passwordEdit.getText().toString().trim();
         if (email.equals("test")&&password.equals("8023")){
             Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
 

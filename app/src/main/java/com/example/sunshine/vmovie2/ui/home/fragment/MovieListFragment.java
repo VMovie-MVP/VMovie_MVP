@@ -3,6 +3,7 @@ package com.example.sunshine.vmovie2.ui.home.fragment;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
@@ -60,8 +61,8 @@ public class MovieListFragment extends BaseFragment<MovieListPresenter, MovieLis
         FragmentManager childFragmentManager = getChildFragmentManager();
         headViewViewPager.setFragmentManger(childFragmentManager);
         mListView.addHeaderView(headViewViewPager.getHeadView());
-
-        adapter = new MovieListAdapter(null, getContext(), null, R.layout.movie_list_item);
+        FragmentActivity activity=getActivity();
+        adapter = new MovieListAdapter(null, getContext(), null,activity, R.layout.movie_list_item);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(this);
         mPresenter.getMovieList(String.valueOf(index));
