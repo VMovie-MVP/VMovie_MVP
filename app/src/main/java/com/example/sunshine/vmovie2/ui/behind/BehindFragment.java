@@ -42,7 +42,7 @@ public class BehindFragment extends BaseFragment<BehindPresenter, BehindTitleMod
         viewPager.setAdapter(tabAdapter);
         tabLayout.setupWithViewPager(viewPager);
         viewPager.addOnPageChangeListener(this);
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(3);
         mPresenter.getTitle();
     }
 
@@ -82,10 +82,7 @@ public class BehindFragment extends BaseFragment<BehindPresenter, BehindTitleMod
 
     @Override
     public void onPageSelected(int position) {
-        BehindPageFragment pageFragment = tabAdapter.getItem(position);
-        pageFragment.setCateId(behindTitleBean.getData().get(position).getCateid());
-        pageFragment.setPage(1);
-        pageFragment.mPresenter.getBehindBean(behindTitleBean.getData().get(position).getCateid(),1);
+        //在这给fragment赋值,体验不好
     }
 
     @Override

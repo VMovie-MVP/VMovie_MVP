@@ -43,6 +43,8 @@ public class BehindTabAdapter extends FragmentPagerAdapter {
     }
     @Override
     public BehindPageFragment getItem(int position) {
+        pageData.get(position).setCateId(data.get(position).getCateid());
+        pageData.get(position).setPage(1);
         return pageData.get(position);
     }
 
