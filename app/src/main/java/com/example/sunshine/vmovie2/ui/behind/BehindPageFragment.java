@@ -24,7 +24,7 @@ import butterknife.BindView;
 
 public class BehindPageFragment extends BaseFragment<BehindBeanPresenter, BehindBeanModel> implements BehindContract.BehindBeanView, PullToRefreshBase.OnRefreshListener2, AdapterView.OnItemClickListener {
 
-    private String cateId = "2";
+    private String cateId;
     private int page = 1;
     @BindView(R2.id.behind_recycler)
     PullToRefreshListView refreshListView;
