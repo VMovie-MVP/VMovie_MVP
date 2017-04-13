@@ -1,9 +1,10 @@
 package com.example.sunshine.vmovie2.bean;
 
 /**
- * Created by MartinYun on 2017/4/12.
+ * Created by sunshine on 2017/4/13.
  */
- class MovieListHeadBean {
+
+public class MovieListHeadBean {
     private String image;
     private ExtraData extra_data;
 
@@ -23,4 +24,5 @@ package com.example.sunshine.vmovie2.bean;
     public void setExtra_data(ExtraData extra_data) {
         this.extra_data = extra_data;
     }
+
 }
