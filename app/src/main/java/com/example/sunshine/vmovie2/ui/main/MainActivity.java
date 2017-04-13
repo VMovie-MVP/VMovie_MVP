@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 //                notInDetail();
                 if (isLogin) {
                     Toast.makeText(this, "确认退出?", Toast.LENGTH_SHORT).show();
-                    isLogin=false;
+//                    isLogin=false;
                 } else {
                     startActivityForResult(new Intent(this, LoginActivity.class), 100);
                     isLogin=true;
