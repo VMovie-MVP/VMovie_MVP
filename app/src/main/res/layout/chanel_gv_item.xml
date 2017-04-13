@@ -3,12 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="220dp">
 
-    <ImageView
-        android:id="@+id/chanel_gv_image"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/chanel_gv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#3d060606" />
+
+
+    </FrameLayout>
+
+
 
 
     <TextView

@@ -14,8 +14,12 @@ import com.example.mvplibrary.base.BaseActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.constant.HttpParams;
+import com.example.sunshine.vmovie2.ui.LoginActivity;
+import com.example.sunshine.vmovie2.utils.ShareUtil;
 
 import butterknife.BindView;
+import butterknife.OnClick;
+import butterknife.OnItemClick;
 
 /**
  * Created by sunshine on 2017/4/11.
@@ -28,8 +32,16 @@ public class SeriesDetailActivity extends BaseActivity implements View.OnClickLi
     ImageView topBack;
     @BindView(R2.id.series_detail_web_not_find)
     TextView emptyText;
-    @BindView(R2.id.series_detail_video)
-    VideoView mVideoView;
+    //    @BindView(R2.id.series_detail_video)
+//    VideoView mVideoView;
+    @BindView(R2.id.series_detail_bottom_share)
+    TextView bottomShare;
+    @BindView(R2.id.series_detail_top_share)
+    ImageView topShare;
+    @BindView(R2.id.series_detail_bottom_comment)
+    TextView commentView;
+    @BindView(R2.id.series_detail_bottom_cache)
+    TextView cacheView;
 
     @Override
     public int getLayoutId() {
@@ -45,7 +57,6 @@ public class SeriesDetailActivity extends BaseActivity implements View.OnClickLi
     public void initView() {
         Intent intent = getIntent();
         String seriesId = intent.getStringExtra("seriesId");
-        topBack.setOnClickListener(this);
 
         if (seriesId.equals("")) {
             emptyText.setVisibility(View.VISIBLE);
@@ -58,16 +69,26 @@ public class SeriesDetailActivity extends BaseActivity implements View.OnClickLi
             //设置Web视图
             mWebView.setWebViewClient(new HelloWebViewClient());
         }
-        mVideoView.setMediaController(new MediaController(this));
-        mVideoView.setVideoURI(Uri.parse(HttpParams.VIDEO_VIEW_URL));
-        mVideoView.start();
+//        mVideoView.setMediaController(new MediaController(this));
+//        mVideoView.setVideoURI(Uri.parse(HttpParams.VIDEO_VIEW_URL));
+//        mVideoView.start();
     }
 
-    @Override
+    @OnClick(value = {R2.id.series_detail_top_back, R2.id.series_detail_bottom_share, R2.id.series_detail_top_share, R2.id.series_detail_bottom_comment, R2.id.series_detail_bottom_cache})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.series_detail_top_back:
                 finish();
+                break;
+            case R.id.series_detail_bottom_share:
+            case R.id.series_detail_top_share:
+                ShareUtil.showShare(this, "分享", null, null, null, null, null, null);
+                break;
+            case R.id.series_detail_bottom_comment:
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
+            case R.id.series_detail_bottom_cache:
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
 

@@ -97,13 +97,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             editor.putBoolean("isLogin", true);
             editor.commit();
 
-//            Intent intent = new Intent(this, MainActivity.class);
             Intent intent=getIntent();
             intent.putExtra("photo", "http://image.so.com/v?q=头像&src=relation_qqimage&fromurl=http%3A%2F%2Fwww.duitang.com%2Fpeople%2Fmblog%2F122735416%2Fdetail%2F#q=%E5%A4%B4%E5%83%8F&src=relation_qqimage&fromurl=http%3A%2F%2Fwww.duitang.com%2Fpeople%2Fmblog%2F122735416%2Fdetail%2F&lightboxindex=2&id=ccedb8303d243ef875eaf27e432a1b54&multiple=0&itemindex=0&dataindex=2");
             intent.putExtra("name", "sunshine");
             setResult(200, intent);
 //            startActivity(intent);
-            this.finish();
+            LoginActivity.this.finish();
         }
     }
 
@@ -135,18 +134,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 ////                String qqPhotoUrl = (String) hashMap.get("figureurl_qq_1");
 ////                String nickName = (String) hashMap.get("nickname");
 
-                Intent intent = getIntent();
-                intent.putExtra("photo", userIcon);
-                intent.putExtra("name", userName);
-                setResult(200, intent);
-//                startActivity(intent);
-
                 SharedPreferences sp = getSharedPreferences("isFirstLogin", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putBoolean("isLogin", true);
                 editor.commit();
 
-                LoginActivity.this.finish();
+                Intent intent = getIntent();
+                intent.putExtra("photo", userIcon);
+                intent.putExtra("name", userName);
+                setResult(200, intent);
+//                startActivity(intent);
+               LoginActivity.this.finish();
 
             }
 

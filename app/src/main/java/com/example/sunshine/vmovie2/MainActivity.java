@@ -24,7 +24,6 @@ import com.example.sunshine.vmovie2.ui.LoginActivity;
 import com.example.sunshine.vmovie2.ui.home.HomeFragment;
 import com.example.sunshine.vmovie2.ui.behind.BehindFragment;
 import com.example.sunshine.vmovie2.ui.series.SeriesFragment;
-import com.example.sunshine.vmovie2.widget.RoundImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.Timer;
@@ -32,16 +31,27 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
+import butterknife.OnClick;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     private Fragment mShowFragment;//正在显示的Fragment
     private boolean isExit;//双击退出的标志位
     @BindView(R2.id.activity_main_cover)
     View mCover;
+    @BindView(R2.id.setting_imageView2)
+    ImageView settingImage;
     @BindView(R2.id.activity_main_cover_click_to_login)
-    RoundImageView mLogin;
+    ImageView mLogin;
+    @BindView(R2.id.message_imageView3)
+    ImageView msgImage;
+    @BindView(R2.id.main_cover_my_cache)
+    TextView myCache;
+    @BindView(R2.id.main_cover_my_like)
+    TextView myLike;
+
     @BindView(R2.id.activity_main_open_side)
     ImageView openCover;
     @BindView(R2.id.activity_main_cover_close)
@@ -84,42 +94,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        mLogin.setOnClickListener(this);
-        openCover.setOnClickListener(this);
-        mCloseCover.setOnClickListener(this);
         mRg.setOnCheckedChangeListener(this);
-
-        mRgHome.setOnClickListener(this);
-        mRgSeries.setOnClickListener(this);
-        mRgBehind.setOnClickListener(this);
-
-        mSearch.setOnClickListener(this);
-        mMovieListTitle.setOnClickListener(this);
-        mChannelListTitle.setOnClickListener(this);
-
         //设置第一个为选中
         mRgHome.setChecked(true);
 
     }
 
-    @Override
+    @OnClick(value = {R2.id.setting_imageView2, R2.id.activity_main_cover_click_to_login,
+            R2.id.message_imageView3, R2.id.main_cover_my_cache, R2.id.main_cover_my_like,
+            R2.id.activity_main_open_side, R2.id.activity_main_cover_close,
+            R2.id.activity_main_cover_rg_home, R2.id.activity_main_cover_rg_series,
+            R2.id.activity_main_cover_rg_behind, R2.id.activity_main_search,
+            R2.id.activity_main_home_title_movie_list, R2.id.activity_main_home_title_channel_list})
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.setting_imageView2:
+                Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.activity_main_cover_click_to_login:
+                startActivityForResult(new Intent(this, LoginActivity.class), 100);
+                break;
+            case R.id.message_imageView3:
+                Toast.makeText(this, "消息", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_cover_my_cache:
+                Toast.makeText(this, "我的缓存", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_cover_my_like:
+                Toast.makeText(this, "我喜欢的", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.activity_main_open_side:
                 showCover();
                 break;
             case R.id.activity_main_cover_close:
                 closeCover();
                 break;
-//            case R.id.activity_main_cover_click_to_login:
-//                mDrawer.openDrawer(Gravity.RIGHT);
-//                break;
-//            case R.id.side_drawer_close:
-//                if (mDrawer.isDrawerOpen(Gravity.RIGHT)) {
-//                    mDrawer.closeDrawer(Gravity.RIGHT);
-//                }
-//                break;
-
             case R.id.activity_main_cover_rg_home:
             case R.id.activity_main_cover_rg_series:
             case R.id.activity_main_cover_rg_behind:
@@ -148,12 +157,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     unCheck.setTextColor(getResources().getColor(R.color.colorWhite));
                 }
                 break;
+        }
+    }
 
-            case R.id.activity_main_cover_click_to_login:
-//                startActivity(new Intent(this,LoginActivity.class));
-                startActivityForResult(new Intent(this, LoginActivity.class), 100);
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId) {
+            case R.id.activity_main_cover_rg_home:
+                switchPage(HomeFragment.TAG);
+                mTitle.setVisibility(View.GONE);
+                mHomeTitle.setVisibility(View.VISIBLE);
+                break;
+            case R.id.activity_main_cover_rg_series:
+                switchPage(SeriesFragment.TAG);
+                mHomeTitle.setVisibility(View.GONE);
+                mTitle.setVisibility(View.VISIBLE);
+                mTitle.setText("系列");
+                break;
+            case R.id.activity_main_cover_rg_behind:
+                switchPage(BehindFragment.TAG);
+                mHomeTitle.setVisibility(View.GONE);
+                mTitle.setVisibility(View.VISIBLE);
+                mTitle.setText("幕后");
                 break;
         }
+        mCover.setVisibility(View.GONE);
     }
 
     @Override
@@ -162,8 +190,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (requestCode == 100 && resultCode == 200) {
             String photoUrl = data.getStringExtra("photo");
             String name = data.getStringExtra("name");
-            Log.e(TAG, "onActivityResult: photo-------->"+photoUrl );
-            Log.e(TAG, "onActivityResult: name-------->"+name );
+            Log.e(TAG, "onActivityResult: photo-------->" + photoUrl);
+            Log.e(TAG, "onActivityResult: name-------->" + name);
             Picasso.with(this).load(Uri.parse(photoUrl)).placeholder(R.mipmap.ic_launcher)
                     .transform(new CropCircleTransformation())
                     .into(mLogin);
@@ -242,29 +270,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId) {
-            case R.id.activity_main_cover_rg_home:
-                switchPage(HomeFragment.TAG);
-                mTitle.setVisibility(View.GONE);
-                mHomeTitle.setVisibility(View.VISIBLE);
-                break;
-            case R.id.activity_main_cover_rg_series:
-                switchPage(SeriesFragment.TAG);
-                mHomeTitle.setVisibility(View.GONE);
-                mTitle.setVisibility(View.VISIBLE);
-                mTitle.setText("系列");
-                break;
-            case R.id.activity_main_cover_rg_behind:
-                switchPage(BehindFragment.TAG);
-                mHomeTitle.setVisibility(View.GONE);
-                mTitle.setVisibility(View.VISIBLE);
-                mTitle.setText("幕后");
-                break;
-        }
-        mCover.setVisibility(View.GONE);
-    }
+
 
     /**
      * 页面切换控制

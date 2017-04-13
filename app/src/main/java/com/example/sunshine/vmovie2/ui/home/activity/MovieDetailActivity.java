@@ -18,6 +18,7 @@ import android.webkit.WebViewClient;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,11 +28,13 @@ import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.constant.HttpParams;
 import com.example.sunshine.vmovie2.ui.LoginActivity;
+import com.example.sunshine.vmovie2.utils.ShareUtil;
 import com.example.sunshine.vmovie2.widget.AudioController;
 import com.example.sunshine.vmovie2.widget.LightnessController;
 import com.example.sunshine.vmovie2.widget.MyVideoView;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by sunshine on 2017/4/11.
@@ -57,10 +60,18 @@ public class MovieDetailActivity extends BaseActivity implements Handler.Callbac
     CheckBox mFullScreen;
     @BindView(R2.id.teach_video_container)
     FrameLayout mVideoContainer;
+    @BindView(R2.id.movie_detail_top_back)
+    ImageView topBack;
+    @BindView(R2.id.movie_detail_top_share)
+    ImageView topShare;
     @BindView(R2.id.movie_detail_bottom_like)
     TextView likeView;
     @BindView(R2.id.movie_detail_bottom_share)
     TextView shareView;
+    @BindView(R2.id.movie_detail_bottom_comment)
+    TextView commentView;
+    @BindView(R2.id.movie_detail_bottom_cache)
+    TextView cacheView;
 
     private int mVideoHeight;
     private Handler mHandler;
@@ -122,15 +133,14 @@ public class MovieDetailActivity extends BaseActivity implements Handler.Callbac
             mWebView.setWebViewClient(new HelloWebViewClient());
         }
         likeView.setText(likeNum);
-        likeView.setOnClickListener(this);
         shareView.setText(shareNum);
-        shareView.setOnClickListener(this);
 
 
 
     }
 
     //-----点击监听--------------------
+    @OnClick(value = {R2.id.movie_detail_top_back,R2.id.movie_detail_bottom_like,R2.id.movie_detail_bottom_share,R2.id.movie_detail_top_share,R2.id.movie_detail_bottom_comment,R2.id.movie_detail_bottom_cache})
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -139,11 +149,16 @@ public class MovieDetailActivity extends BaseActivity implements Handler.Callbac
                 break;
             case R.id.movie_detail_bottom_like:
                 startActivity(new Intent(this, LoginActivity.class));
-                Toast.makeText(this, "like", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.movie_detail_bottom_share:
             case R.id.movie_detail_top_share:
-                Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
+                //分享
+                ShareUtil.showShare(this,"分享",null,null,null,null,null,null);
+                break;
+            case R.id.movie_detail_bottom_comment:
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
+            case R.id.movie_detail_bottom_cache:
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
@@ -167,7 +182,6 @@ public class MovieDetailActivity extends BaseActivity implements Handler.Callbac
                 }
                 // 设置当前进度
                 mProgress.setProgress(currentPosition);
-
                 mHandler.sendEmptyMessageDelayed(UPDATE_PROGRESS, 1000);
                 break;
         }

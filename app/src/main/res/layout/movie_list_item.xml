@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/movie_list_item_image"
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="240dp"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="#3d060606" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="180dp"
         android:orientation="vertical">
 
         <TextView
@@ -22,8 +30,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="五种电影经典摄影镜头"
-            android:textColor="@color/colorWhite"
-            android:textSize="16sp" />
+            android:textColor="@drawable/channel_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/movie_list_item_ll"
@@ -37,27 +46,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="混剪"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
+                android:textColor="@drawable/channel_text_color"
+                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="  /  "
-                android:visibility="gone"
-                android:textColor="@color/colorWhite" />
+                android:textSize="12sp"
+                android:textColor="@drawable/channel_text_color"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/movie_list_item_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12.06"
-                android:visibility="gone"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
+                android:textColor="@drawable/channel_text_color"
+                android:textSize="12sp"
+                android:visibility="gone" />
         </LinearLayout>
 
     </LinearLayout>
 
 
-</RelativeLayout>
+</FrameLayout>

@@ -6,35 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.sunshine.vmovie2.ui.home.activity.MovieDetailActivity">
 
-    <RelativeLayout
-        android:id="@+id/movie_detail_topBar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorBlack">
-
-        <ImageView
-            android:id="@+id/movie_detail_top_back"
-            android:layout_width="45dp"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:src="@mipmap/back_icon" />
-
-        <ImageView
-            android:id="@+id/movie_detail_top_share"
-            android:layout_width="45dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:scaleType="centerInside"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:src="@mipmap/video_lan_share" />
-    </RelativeLayout>
-
     <LinearLayout
         android:id="@+id/movie_detail_bottom_layout"
         android:layout_width="match_parent"
@@ -112,6 +83,35 @@
             android:id="@+id/movie_detail_video"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/movie_detail_topBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorBlack">
+
+            <ImageView
+                android:id="@+id/movie_detail_top_back"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:src="@mipmap/back_icon" />
+
+            <ImageView
+                android:id="@+id/movie_detail_top_share"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:scaleType="centerInside"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:src="@mipmap/video_lan_share" />
+        </RelativeLayout>
 
         <FrameLayout
             android:id="@+id/teach_video_controller"

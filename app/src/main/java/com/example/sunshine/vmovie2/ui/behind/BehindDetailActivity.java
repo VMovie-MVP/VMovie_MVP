@@ -13,8 +13,11 @@ import android.widget.TextView;
 import com.example.mvplibrary.base.BaseActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
+import com.example.sunshine.vmovie2.ui.LoginActivity;
+import com.example.sunshine.vmovie2.utils.ShareUtil;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by sunshine on 2017/4/11.
@@ -40,7 +43,6 @@ public class BehindDetailActivity extends BaseActivity implements View.OnClickLi
     TextView title;
 
 
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_behind_detail;
@@ -59,14 +61,10 @@ public class BehindDetailActivity extends BaseActivity implements View.OnClickLi
         String shareNum = intent.getStringExtra("share_num");
         String header = intent.getStringExtra("header");
 
-
-        Log.e(TAG, "initView: ======"+requestUrl );
-
         if (header != null) {
             bottomLayout.setVisibility(View.GONE);
-            Log.e(TAG, "initView: ======"+requestUrl );
-           title.setText("标题");
-
+//            Log.e(TAG, "initView: ======" + requestUrl);
+            title.setText("标题");
         }
         if (requestUrl.equals("")) {
             TextView emptyText = (TextView) findViewById(R.id.behind_detail_web_not_find);
@@ -81,16 +79,11 @@ public class BehindDetailActivity extends BaseActivity implements View.OnClickLi
             mWebView.setWebViewClient(new HelloWebViewClient());
         }
 
-        topBack.setOnClickListener(this);
-        topShare.setOnClickListener(this);
         likeView.setText(likeNum);
-        likeView.setOnClickListener(this);
         shareView.setText(shareNum);
-        shareView.setOnClickListener(this);
-        commentView.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick(value = {R2.id.behind_detail_top_back, R2.id.behind_detail_top_share, R2.id.behind_detail_bottom_like, R2.id.behind_detail_bottom_share, R2.id.behind_detail_bottom_comment})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.behind_detail_top_back:
@@ -98,15 +91,14 @@ public class BehindDetailActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.behind_detail_bottom_share:
             case R.id.behind_detail_top_share:
-//                PopupWindow popupWindow = new PopupWindow();
-//                popupWindow.showAsDropDown();
-//                startActivity(new Intent(this,LoginActivity.class));
+                //分享
+                ShareUtil.showShare(this, "分享", null, null, null, null, null, null);
                 break;
             case R.id.behind_detail_bottom_like:
-//                startActivity(new Intent(this,LoginActivity.class));
+                startActivity(new Intent(this,LoginActivity.class));
                 break;
             case R.id.behind_detail_bottom_comment:
-//                startActivity(new Intent(this,LoginActivity.class));
+                startActivity(new Intent(this,LoginActivity.class));
                 break;
         }
     }
@@ -115,7 +107,7 @@ public class BehindDetailActivity extends BaseActivity implements View.OnClickLi
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
-            Log.e(TAG, "shouldOverrideUrlLoading: "+url );
+            Log.e(TAG, "shouldOverrideUrlLoading: " + url);
             return true;
         }
     }
