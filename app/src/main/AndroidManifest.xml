@@ -36,6 +36,8 @@
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.main.LoginActivity" />
 
+
+
         <activity
             android:name=".ui.home.activity.MovieDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />

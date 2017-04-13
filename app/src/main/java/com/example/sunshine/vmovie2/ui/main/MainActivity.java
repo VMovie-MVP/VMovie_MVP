@@ -112,16 +112,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         switch (v.getId()) {
             case R.id.setting_imageView2:
                 if (isLogin){
-                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
-                }else {
                     Toast.makeText(this, "去设置页面", Toast.LENGTH_SHORT).show();
+                }else {
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
                 }
                 break;
             case R.id.activity_main_cover_click_to_login:
 //                notInDetail();
                 if (isLogin) {
                     Toast.makeText(this, "确认退出?", Toast.LENGTH_SHORT).show();
-                    isLogin=false;
+//                    isLogin=false;
                 } else {
                     startActivityForResult(new Intent(this, LoginActivity.class), 100);
                     isLogin=true;
@@ -129,9 +129,9 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
             case R.id.message_imageView3:
                 if (isLogin){
-                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
-                }else {
                     Toast.makeText(this, "去消息页面", Toast.LENGTH_SHORT).show();
+                }else {
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
                 }
                 break;
             case R.id.main_cover_my_cache:
