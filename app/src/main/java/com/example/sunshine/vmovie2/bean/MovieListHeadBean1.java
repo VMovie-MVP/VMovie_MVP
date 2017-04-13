@@ -4,7 +4,7 @@ package com.example.sunshine.vmovie2.bean;
  * Created by sunshine on 2017/4/13.
  */
 
-public class MovieListHeadBean {
+public class MovieListHeadBean1 {
     private String image;
     private ExtraData extra_data;
 

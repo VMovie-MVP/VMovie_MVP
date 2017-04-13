@@ -9,7 +9,7 @@ import java.util.List;
 public class MovieListHeadData {
     private String status;
     private String msg;
-    private List<MovieListHeadBean> data;
+    private List<MovieListHeadBean1> data;
 
     public String getStatus() {
         return status;
@@ -27,11 +27,11 @@ public class MovieListHeadData {
         this.msg = msg;
     }
 
-    public List<MovieListHeadBean> getData() {
+    public List<MovieListHeadBean1> getData() {
         return data;
     }
 
-    public void setData(List<MovieListHeadBean> data) {
+    public void setData(List<MovieListHeadBean1> data) {
         this.data = data;
     }
 }
