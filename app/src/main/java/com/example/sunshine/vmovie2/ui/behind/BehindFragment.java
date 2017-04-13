@@ -36,6 +36,7 @@ public class BehindFragment extends BaseFragment<BehindPresenter, BehindTitleMod
 
     @Override
     public void initView() {
+        
         tabAdapter = new BehindTabAdapter(getActivity().getSupportFragmentManager(), null);
         viewPager.setAdapter(tabAdapter);
         tabLayout.setupWithViewPager(viewPager);

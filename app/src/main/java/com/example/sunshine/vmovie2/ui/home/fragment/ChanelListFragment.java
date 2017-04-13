@@ -34,7 +34,6 @@ public class ChanelListFragment extends BaseFragment<ChanelListPresenter, Chanel
     private List<String> cateNames = new ArrayList<>();
     private ChanelGridAdapter adapter;
 
-
     @Override
     public int getLayoutId() {
         return R.layout.fragment_chanel_list;
