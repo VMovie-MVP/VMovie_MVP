@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d6d4d4"
+    tools:context="com.example.sunshine.vmovie2.ui.setting.SettingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/movie_detail_topBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorBlack">
+
+            <ImageView
+                android:id="@+id/setting_top_back"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@mipmap/back_icon" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_login_msg_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <ImageView
+                android:id="@+id/setting_login_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/default_avatar" />
+
+            <TextView
+                android:id="@+id/setting_login_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="上善若水"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/setting_exit_login_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/out_login_btn"
+                android:text="退出"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="用户反馈" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="清除图片缓存" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="播放设置" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="允许非wifi下网络下载" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/wifi_setting_selector"/>
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="离线缓存路径设置" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="给电影评分" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="版本更新" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="分享给好友"
+                    style="@style/setting_text" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="给我投稿"
+                    style="@style/setting_text" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="关注微信公众号"
+                    style="@style/setting_text" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="加入用户QQ群"
+                    style="@style/setting_text" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="关于我们"
+                    style="@style/setting_text" />
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+            <ImageView style="@style/setting_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="免责声明"/>
+
+                <ImageView style="@style/setting_image" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -3,6 +3,7 @@ package com.example.sunshine.vmovie2.ui.main;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -23,8 +25,13 @@ import android.widget.Toast;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
 import com.example.sunshine.vmovie2.ui.behind.BehindFragment;
+import com.example.sunshine.vmovie2.ui.cache.CacheActivity;
 import com.example.sunshine.vmovie2.ui.home.HomeFragment;
+import com.example.sunshine.vmovie2.ui.like.LikeActivity;
+import com.example.sunshine.vmovie2.ui.message.MessageActivity;
 import com.example.sunshine.vmovie2.ui.series.SeriesFragment;
+import com.example.sunshine.vmovie2.ui.setting.SettingActivity;
+import com.example.sunshine.vmovie2.utils.SpfUtil;
 import com.squareup.picasso.Picasso;
 
 import java.util.Timer;
@@ -79,7 +86,9 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @BindView(R2.id.activity_main_cover_click_to_login_text)
     TextView mLoginText;
 
-    private boolean isLogin=false;
+//    private boolean isLogin=false;
+    private String photoUrl;
+    private  String name;
 
     private OnTitleClickListener onTitleClickListener;
 
@@ -111,41 +120,53 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.setting_imageView2:
-                if (isLogin){
-                    Toast.makeText(this, "去设置页面", Toast.LENGTH_SHORT).show();
+                if (SpfUtil.IS_LOGIN){
+                    Intent intent = new Intent(this, SettingActivity.class);
+                    intent.putExtra("photo",photoUrl);
+                    intent.putExtra("name",name);
+                    startActivity(intent);
                 }else {
                     startActivityForResult(new Intent(this, LoginActivity.class), 100);
                 }
                 break;
             case R.id.activity_main_cover_click_to_login:
 //                notInDetail();
-                if (isLogin) {
-                    Toast.makeText(this, "确认退出?", Toast.LENGTH_SHORT).show();
-//                    isLogin=false;
+                if (SpfUtil.IS_LOGIN) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this).setTitle("确认要退出吗").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mLogin.setImageResource(R.mipmap.default_avatar);
+                            mLoginText.setText("点击登录");
+                            SpfUtil.IS_LOGIN = false;
+                        }
+                    }).setNegativeButton("取消", null);
+                    dialog.show();
                 } else {
                     startActivityForResult(new Intent(this, LoginActivity.class), 100);
-                    isLogin=true;
                 }
                 break;
             case R.id.message_imageView3:
-                if (isLogin){
+                if (SpfUtil.IS_LOGIN){
                     Toast.makeText(this, "去消息页面", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, MessageActivity.class));
                 }else {
                     startActivityForResult(new Intent(this, LoginActivity.class), 100);
                 }
                 break;
             case R.id.main_cover_my_cache:
-                if (isLogin){
-                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
-                }else {
+                if (SpfUtil.IS_LOGIN){
                     Toast.makeText(this, "我的缓存", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this,CacheActivity.class));
+                }else {
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
                 }
                 break;
             case R.id.main_cover_my_like:
-                if (isLogin){
-                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
-                }else {
+                if (SpfUtil.IS_LOGIN){
                     Toast.makeText(this, "我喜欢的", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, LikeActivity.class));
+                }else {
+                    startActivityForResult(new Intent(this, LoginActivity.class), 100);
                 }
                 break;
             case R.id.activity_main_open_side:
@@ -202,8 +223,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100 && resultCode == 200) {
-            String photoUrl = data.getStringExtra("photo");
-            String name = data.getStringExtra("name");
+            photoUrl = data.getStringExtra("photo");
+           name= data.getStringExtra("name");
             Log.e(TAG, "onActivityResult: photo-------->" + photoUrl);
             Log.e(TAG, "onActivityResult: name-------->" + name);
             Picasso.with(this).load(Uri.parse(photoUrl)).placeholder(R.mipmap.ic_launcher)

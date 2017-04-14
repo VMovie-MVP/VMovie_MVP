@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.mvplibrary.base.BaseActivity;
 import com.example.sunshine.vmovie2.R;
 import com.example.sunshine.vmovie2.R2;
+import com.example.sunshine.vmovie2.utils.SpfUtil;
 
 import java.util.HashMap;
 
@@ -102,6 +103,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             setResult(200, intent);
 //            startActivity(intent);
             LoginActivity.this.finish();
+            SpfUtil.IS_LOGIN=true;
         }
     }
 
@@ -142,8 +144,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 intent.putExtra("photo", userIcon);
                 intent.putExtra("name", userName);
                 setResult(200, intent);
-//                startActivity(intent);
                LoginActivity.this.finish();
+                SpfUtil.IS_LOGIN=true;
 
             }
 
