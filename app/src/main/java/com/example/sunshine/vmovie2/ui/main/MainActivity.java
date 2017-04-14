@@ -147,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
             case R.id.message_imageView3:
                 if (SpfUtil.IS_LOGIN){
-                    Toast.makeText(this, "去消息页面", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(this, MessageActivity.class));
                 }else {
                     startActivityForResult(new Intent(this, LoginActivity.class), 100);
@@ -155,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
             case R.id.main_cover_my_cache:
                 if (SpfUtil.IS_LOGIN){
-                    Toast.makeText(this, "我的缓存", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(this,CacheActivity.class));
                 }else {
                     startActivityForResult(new Intent(this, LoginActivity.class), 100);
@@ -163,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
             case R.id.main_cover_my_like:
                 if (SpfUtil.IS_LOGIN){
-                    Toast.makeText(this, "我喜欢的", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(this, LikeActivity.class));
                 }else {
                     startActivityForResult(new Intent(this, LoginActivity.class), 100);
